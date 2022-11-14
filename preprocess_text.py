@@ -10,6 +10,12 @@ def tokenizer(content):
   tokens = word_tokenize(content)
   return tokens
 
+# Remover as letras únicas
+def sem_letra_unica(content):
+  tokens = tokenizer(content)
+  sem_letra_unica = " ".join([w for w in tokens if len(w) > 1])
+  return sem_letra_unica
+
 # Remover links (deve ser feito antes da quebra de linha)
 def remover_links(content):
   sem_links = re.sub('(http\S*?\\n)', '', content)
@@ -105,6 +111,7 @@ def preprocess_txt(content):
   sem_barras = remover_barras(sem_numeros)
   sem_duplos = remover_duplos(sem_barras)
   sem_meses = remover_meses(sem_duplos)
-  sem_termos = remover_termos(sem_meses)
+  sem_letras_unicas = sem_letra_unica(sem_meses)
+  sem_termos = remover_termos(sem_letras_unicas)
   sem_stopwords = remover_stopwords(sem_termos)
   return sem_stopwords
