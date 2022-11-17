@@ -1,5 +1,3 @@
-from text_extractor import text_extractor
-from preprocess_text import *
 from utils import *
 import argparse
 
