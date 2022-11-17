@@ -1,6 +1,6 @@
 import pandas as pd
 import nltk
-from preprocess_text import *
+from utils.preprocess_text import *
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors

@@ -1,5 +1,3 @@
-from text_extractor import text_extractor
-from preprocess_text import *
 from utils import *
 import argparse
 
@@ -26,7 +24,7 @@ jobs = pd.read_csv(jobs_path)
 
 # Job Title + Description
 jobs['All'] = jobs['Title'] + ' ' + jobs['Description']
-jobs['All'] = jobs.apply(lambda x: preprocess_txt(x))
+jobs['All'] = jobs['All'].apply(lambda x: preprocess_txt(x))
 
 # Keywords from cv into dataframe
 df = keywords_into_df(keywords)
